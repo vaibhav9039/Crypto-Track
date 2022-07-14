@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles({
   selectbutton: {
-    border: "1px solid gold",
+    border: "1px solid aqua",
     borderRadius: 5,
     padding: 10,
     paddingLeft: 20,
@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     cursor: "pointer",
     width: "22%",
     "&:hover": {
-      backgroundColor: "gold",
+      backgroundColor: "aqua",
       color: "black",
     },
       margin: 5,

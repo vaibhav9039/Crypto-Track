@@ -16,8 +16,7 @@ import {
   Table,
   Paper,
 } from "@material-ui/core";
-import axios from "axios";
-import { CoinList } from "../config/api";
+
 import { useHistory } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
 
@@ -36,26 +35,18 @@ const useStyles = makeStyles({
   },
   pagination: {
     "& .MuiPaginationItem-root": {
-      color: "gold",
+      color: "aqua",
     },
   },
 });
 
 const CoinsTable = () => {
-  const [coins, setCoins] = useState([]);
-  const [loading, setLoading] = useState(false);
+
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const { currency, symbol } = CryptoState();
+  const { currency, symbol, coins, loading, fetchCoins } = CryptoState();
 
-  const fetchCoins = async () => {
-    setLoading(true);
-    const { data } = await axios.get(CoinList(currency));
-    console.log(data);
-
-    setCoins(data);
-    setLoading(false);
-  };
+ 
 
   useEffect(() => {
     fetchCoins();
@@ -102,7 +93,7 @@ const CoinsTable = () => {
             <LinearProgress style={{ backgroundColor: "gold" }} />
           ) : (
             <Table aria-label="simple table">
-              <TableHead style={{ backgroundColor: "#EEBC1D" }}>
+              <TableHead style={{ backgroundColor: "aqua" }}>
                 <TableRow>
                   {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                     <TableCell
